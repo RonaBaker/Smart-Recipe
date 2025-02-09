@@ -1,8 +1,32 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/smart-recipe/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/smart-recipe/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/smart-recipe",
+  "projects": {
+    "backend": {
+      "type": "application",
+      "root": "apps/backend",
+      "entryFile": "main",
+      "sourceRoot": "apps/backend/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/backend/tsconfig.app.json"
+      }
+    },
+    "smart-recipe": {
+      "type": "application",
+      "root": "apps/smart-recipe",
+      "entryFile": "main",
+      "sourceRoot": "apps/smart-recipe/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/smart-recipe/tsconfig.app.json"
+      }
+    }
   }
 }
